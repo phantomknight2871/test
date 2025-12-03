@@ -1,0 +1,1 @@
+GIT_SSH_COMMAND="ssh -i ../../b33f/github_proxy/ssh_host_key/id_rsa" git pull origin main --ff-only
