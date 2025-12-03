@@ -1,3 +1,10 @@
-echo "Merging heads..."
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
 
+echo "Commit successful! Notifying external service..."
+# Example: Trigger a build on a CI/CD platform
+# curl -X POST https://your-ci-cd-platform.com/webhook/trigger-build
+
+# Example: Log commit details
+git log -1 --pretty=format:"%h - %an, %ar : %s" >> commit_history.log
 GIT_SSH_COMMAND="ssh -i ../../b33f/github_proxy/ssh_host_key/id_rsa" git pull origin main --rebase
